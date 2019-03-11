@@ -1,8 +1,9 @@
-﻿var config = {
+﻿//Particle displacement using the phaser engine.  
+//modified from phaser example
+var config = {
     type: Phaser,
     width: 800,
     height: 600,
-    parent: 'phaser-example',
     physics: {
         default: 'arcade',
         arcade: {
@@ -21,7 +22,7 @@ var controls;
 var player;
 var group;
 var spriteBounds;
-var text;
+
 
 var game = new Phaser.Game(config);
 
@@ -46,7 +47,7 @@ function release ()
         block.setBlendMode(1);
     }
 
-    //text.setText('Total: ' + group.getLength());
+    
 }
 
 function create ()
