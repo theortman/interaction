@@ -1,5 +1,5 @@
 ﻿//Particle displacement using the phaser engine.  
-//modified from phaser example
+//modified from phaser example by Tien Ortman Tmo8@uw.edu
 var config = {
     type: Phaser,
     width: 800,
