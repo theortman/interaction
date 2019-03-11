@@ -68,7 +68,7 @@ function create ()
 
     cursors = this.input.keyboard.createCursorKeys();
 
-    player = this.physics.add.image(400, 100, 'crate').setScale(100);
+    player = this.physics.add.image(400, 100, 'crate').setScale(5);
 
     player.setImmovable();
     player.setCollideWorldBounds(true);
