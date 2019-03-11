@@ -27,8 +27,8 @@ var game = new Phaser.Game(config);
 
 function preload ()
 {
-    this.load.image('chunk', './particle.png');
-    this.load.image('crate', './box.png');
+    this.load.image('chunk', 'particle.png');
+    this.load.image('crate', 'box.png');
 }
 
 function release ()
