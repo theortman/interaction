@@ -46,14 +46,14 @@ function release ()
         block.setBlendMode(1);
     }
 
-    text.setText('Total: ' + group.getLength());
+    //text.setText('Total: ' + group.getLength());
 }
 
 function create ()
 {
     var graphics = this.add.graphics();
     graphics.fillStyle(0x000044);
-    graphics.fillRect(0,140,800,460);
+    graphics.fillRect(0,0,800,200);
 
     this.physics.world.setBounds(0, 0, 800, 600);
 
@@ -63,7 +63,7 @@ function create ()
     group = this.physics.add.group();
     group.runChildUpdate = false;
 
-    //  Create 10,000 bodies at a rate of 100 bodies per 500ms
+    
     this.time.addEvent({ delay: 500, callback: release, callbackScope: this, repeat: (10000 / 100) - 1 });
 
     cursors = this.input.keyboard.createCursorKeys();
@@ -75,7 +75,7 @@ function create ()
 
     this.physics.add.collider(player, group);
 
-    text = this.add.text(10, 10, 'Total: 0', { font: '16px Courier', fill: '#ffffff' });
+    
 }
 
 function update ()
