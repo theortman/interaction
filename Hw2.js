@@ -119,6 +119,7 @@ function update ()
 
 
 window.onload = function () {
+    
     var socket = io.connect("http://24.16.255.56:8888");
   
     socket.on("load", function (data) {
@@ -127,6 +128,7 @@ window.onload = function () {
         console.log(stuff[0]);
         console.log(stuff[1]);
         player.body.reset(stuff[0]+80, stuff[1]+82);
+        
 
 
         
@@ -144,10 +146,11 @@ window.onload = function () {
       stuff = [];
       stuff[0] = player.body.x;
       stuff[1] = player.body.y;
+      var myTime = this.time;
       console.log(stuff[0]);
       console.log(stuff[1]);
 
-      socket.emit("save", { studentname: "Tien Ortman", statename: "box position2", data:  stuff});
+      socket.emit("save", { studentname: "Tien Ortman", statename: "box position2", data:  stuff, data2: myTime});
     };
   
     loadButton.onclick = function () {
