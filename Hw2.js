@@ -119,7 +119,7 @@ function update ()
 
 
 window.onload = function () {
-    var socket = io.connect("http://24.16.255.56:8888");
+    var socket = io.connect("HTTPS://24.16.255.56:8888");
   
     socket.on("load", function (data) {
         
