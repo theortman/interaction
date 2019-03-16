@@ -1,5 +1,9 @@
 ﻿//Particle displacement using the phaser engine.  
 //modified from phaser example by Tien Ortman Tmo8@uw.edu
+
+
+
+
 var config = {
     type: Phaser,
     width: 800,
@@ -22,9 +26,14 @@ var controls;
 var player;
 var group;
 var spriteBounds;
+var myX;
+var myY;
+
 
 
 var game = new Phaser.Game(config);
+
+
 
 function preload ()
 {
@@ -63,6 +72,7 @@ function create ()
 
     group = this.physics.add.group();
     group.runChildUpdate = false;
+    console.log(group);
 
     
     this.time.addEvent({ delay: 500, callback: release, callbackScope: this, repeat: (10000 / 100) - 1 });
@@ -86,6 +96,9 @@ function update ()
     if (cursors.left.isDown)
     {
         player.setVelocityX(-500);
+        
+        
+        
     }
     else if (cursors.right.isDown)
     {
@@ -100,4 +113,48 @@ function update ()
     {
         player.setVelocityY(500);
     }
+
+    
 }
+
+
+window.onload = function () {
+    var socket = io.connect("http://24.16.255.56:8888");
+  
+    socket.on("load", function (data) {
+        
+        console.log(data);
+        console.log(stuff[0]);
+        console.log(stuff[1]);
+        player.body.reset(stuff[0]+80, stuff[1]+82);
+
+
+        
+    });
+  
+    var text = document.getElementById("text");
+    var saveButton = document.getElementById("save");
+    var loadButton = document.getElementById("load");
+  
+    saveButton.onclick = function () {
+       // var myPoint = new Phaser.Geom.Point(player.body.x, player.body.y);
+
+      console.log("save");
+      text.innerHTML = "Saved."
+      stuff = [];
+      stuff[0] = player.body.x;
+      stuff[1] = player.body.y;
+      console.log(stuff[0]);
+      console.log(stuff[1]);
+
+      socket.emit("save", { studentname: "Tien Ortman", statename: "box position2", data:  stuff});
+    };
+  
+    loadButton.onclick = function () {
+      console.log("load");
+      text.innerHTML = "Loaded."
+      socket.emit("load", { studentname: "Tien Ortman", statename: "box position2"});
+      
+    };
+  
+  };

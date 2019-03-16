@@ -4,7 +4,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
+	<title>hw3</title>
+	<script type="text/javascript" src="http://24.16.255.56:8888/socket.io/socket.io.js"></script>
 </head>
 <body>
 	<div>Arrow keys = Move.  Displace the particles with the gray and red box</div>
@@ -12,7 +13,9 @@
 	<div>the box is immune to gravity</div>
 	<div>the black section is where the particles settle if not collided with</div>
 	<div>the particles change color when they enter the blue section</div>
-	
+	<div id = "text"></div>
+    <button id="save" type="button">Save</button>
+    <button id="load" type="button">Load</button>
 
 
 	<script src="./phaser.js"></script>
