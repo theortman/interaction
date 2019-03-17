@@ -128,6 +128,7 @@ window.onload = function () {
         console.log(stuff[0]);
         console.log(stuff[1]);
         player.body.reset(stuff[0]+80, stuff[1]+82);
+
         
 
 
